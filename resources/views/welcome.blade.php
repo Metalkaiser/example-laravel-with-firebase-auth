@@ -16,6 +16,26 @@
         </style>
     </head>
     <body class="antialiased">
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "{{ config('services.firebase.api_key') }}",
+                authDomain: "{{ config('services.firebase.auth_domain') }}",
+                databaseURL: "{{ config('services.firebase.database_url') }}",
+                projectId: "{{ config('services.firebase.project_id') }}",
+                storageBucket: "{{ config('services.firebase.storage_bucket') }}",
+                messagingSenderId: "{{ config('services.firebase.messaging_sender_id') }}",
+                appId: "{{ config('services.firebase.app_id') }}"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+        </script>
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
